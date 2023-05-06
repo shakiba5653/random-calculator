@@ -1,0 +1,54 @@
+<html>
+
+<head></head>
+
+<body>
+    <input type="text" placeholder="number1" id="number1" />
+    <input type="text" placeholder="number2" id="number2" />
+    <select id="operation">
+            <option value="+">addition</option>
+            <option value="-">Subtraction</option>
+            <option value="/">Division</option>
+            <option value="*">multiplication</option>
+            <option value="**">Exponentiation </option>
+            <option value="%">Division Remainder</option>             
+        </select>
+    <button id="button">CALCULATE</button>
+    <p id="showResult"></p>
+    <script>
+        var number1 = document.getElementById("number1");
+        var number2 = document.getElementById("number2");
+        var op = document.getElementById("operation");
+        var button = document.getElementById("button");
+        button.addEventListener("click", calc);
+        var final = document.getElementById("showResult");
+
+
+        function calc() {
+            if ((op.value) === "+") {
+                newWay("+");
+            } else if ((op.value) === "/") {
+                newWay("/");
+                // final = parseInt(number1) / parseInt(number2)
+            } else if ((op.value) === "-") {
+                newWay("-");
+                final = parseInt(number1) - parseInt(number2)
+            } else if ((op.value) === "*") {
+                newWay("*");
+                // final = parseInt(number1) * parseInt(number2)
+            } else if ((op.value) === "**") {
+                newWay("**");
+                // final = parseInt(number1) ** parseInt(number2)
+            } else if ((op.value) === "%") {
+                newWay("%");
+                // final = parseInt(number1) % parseInt(number2)
+            }
+        }
+
+        function newWay(opt) {
+            final.innerHTML = eval(parseFloat(number1.value).toFixed(2) + opt + parseFloat(number2.value).toFixed(2));
+        }
+    </script>
+</body>
+
+</html>

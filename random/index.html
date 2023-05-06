@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Number Generator</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        input {
+            width: 100px;
+            padding: 5px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #result {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Random Number Generator</h1>
+    <label for="min">Minimum Value:</label>
+    <input id="min">
+    <label for="max">Maximum Value:</label>
+    <input id="max">
+    <br><br>
+    <button id="random">Generate Random Number</button>
+
+    <br><br>
+    <div id="result"></div>
+    <script>
+        var min = document.getElementById("min");
+        var max = document.getElementById("max");
+        var generator = document.getElementById("random");
+        generator.addEventListener("click", generateRandomNumber);
+
+        function generateRandomNumber() {
+            var randomNum = Math.floor(Math.random() * parseInt(max.value - min.value + 1)) + parseInt(min.value);
+            console.log(randomNum)
+            document.getElementById("result").innerHTML = "Your random number is" + randomNum;
+        }
+    </script>
+</body>
+
+</html>
